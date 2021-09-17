@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<title>Bikers</title>
+	<meta charset="utf-8" />
+	<!--Personal Note: if css or images doesnt load in razor view remember to use relative paths by proceeding file name with /-->
+	<link href="/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div id="page">
+		<div id="header"> <!-- start of header -->
+			@RenderSection("navbar", false)
+
+			<div>
+				<a href="register.htm" class="join"></a>
+				<h3>PROIN AC EUISMOD MI</h3>
+				<p>Suspe disse vitae diam</p>
+			</div>
+		</div> <!-- end of header -->
+
+		@RenderBody()
+	</div>
+	<div id="footer"> <!-- start of footer part -->
+		<div>
+			<ul>
+				<li><a href="http://facebook.com/freewebsitetemplates" target="_blank" class="fb">Facebook</a></li>
+				<li><a href="http://twitter.com/fwtemplates" target="_blank" class="twitr">Twitter</a></li>
+			</ul>
+			<span> &copy; Copyright &copy; @DateTime.Now.Year. <a href="/home">Company name.</a> All Rights Reserved</span>
+		</div>
+	</div> <!-- end of footer part -->
+</body>
+</html>

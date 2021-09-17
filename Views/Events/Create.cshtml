@@ -1,0 +1,50 @@
+﻿@model _1054686___Individual_Assignment.Models.Event
+@{
+    Layout = "_Layout";
+}
+@section navbar{
+    <ul>
+        <li><a href="@Url.Action("Index","Home")">home</a></li>
+        <li><a href="/about.htm">about</a></li>
+        <li class="current"><a href="@Url.Action("Index","events")">events</a></li>
+        <li><a href="/gallery.htm">gallery</a></li>
+        <li><a href="@Url.Action("Index","News")">news</a></li>
+        <li><a href="/contact-us.htm">contact</a></li>
+    </ul>
+}
+
+@*Competition*@
+
+<div id="body">
+    <div class="contents">
+        <!-- start of content -->
+        <h1>EVENTS</h1>
+        <h2>Here you can create a new competition or event</h2>
+        <fieldset>
+            @using (Html.BeginForm())
+            {
+                <p>
+                    @Html.LabelFor(x => x.Title)
+                    @Html.EditorFor(x => x.Title)
+                </p>
+                <p>
+                    @Html.LabelFor(x => x.Time)
+                    @Html.EditorFor(x => x.Time)
+                </p>
+                <p>
+                    @Html.LabelFor(x => x.Location)
+                    @Html.EditorFor(x => x.Location)
+                </p>
+                <p>
+                    @Html.LabelFor(x => x.Body)
+                    @Html.TextAreaFor(x => x.Body)
+                </p>
+                <p>
+                    <button type="submit">Create Event</button>
+                </p>
+            }
+
+        </fieldset>
+        <!-- end of section -->
+    </div>
+</div>

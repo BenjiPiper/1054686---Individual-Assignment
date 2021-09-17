@@ -1,0 +1,48 @@
+﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@model _1054686___Individual_Assignment.Models.Post
+@{
+    Layout = "_Layout";
+}
+@section navbar{
+    <ul>
+        <li><a href="@Url.Action("Index","Home")">home</a></li>
+        <li><a href="about.htm">about</a></li>
+        <li><a href="@Url.Action("Index","Events")">events</a></li>
+        <li><a href="gallery.htm">gallery</a></li>
+        <li class="current"><a href="@Url.Action(" Index","News")">news</a></li>
+        <li><a href="contact-us.htm">contact</a></li>
+    </ul>
+}
+<div id="body">
+    <div class="contents">
+        <!-- start of content -->
+        <div class="blogs">
+            <div>
+                <h1>Create New Post</h1>
+                <!-- start of blog list -->
+                <div class="blog-posts">
+                    <fieldset>
+                        @using (Html.BeginForm())
+                        {
+                            @*@Html.ValidationSummary();*@
+                            <p>
+                                @Html.LabelFor(x => x.Title)
+                                @Html.EditorFor(x => x.Title)
+                                @*@Html.ValidationMessageFor(x=>x.Title)*@
+                            </p>
+                            <p>
+                                @Html.LabelFor(x => x.Body)
+                                @Html.EditorFor(x => x.Body)
+                                @*@Html.ValidationMessageFor(x=>x.Body)*@
+                            </p>
+                            <p>
+                                <button type="submit">Create Post</button>
+                            </p>
+                        }
+                    </fieldset>
+                </div>
+                <!-- end of blog list -->
+            </div>
+        </div>
+    </div> <!-- end of contents -->
+</div>  <!-- end of body wrapper -->

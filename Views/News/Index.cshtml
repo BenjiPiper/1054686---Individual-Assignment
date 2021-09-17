@@ -1,0 +1,56 @@
+﻿@model IEnumerable<_1054686___Individual_Assignment.Models.Post>
+@{
+    Layout = "_Layout";
+}
+@section navbar{
+<ul>
+    <li><a href="@Url.Action("Index","Home")">home</a></li>
+    <li><a href="/about.htm">about</a></li>
+    <li><a href="@Url.Action("Index","Events")">events</a></li>
+    <li><a href="/gallery.htm">gallery</a></li>
+    <li class="current"><a href="@Url.Action(" Index","News")">news</a></li>
+    <li><a href="/contact-us.htm">contact</a></li>
+</ul>
+}
+
+<div id="body">
+    <div class="contents">
+        <!-- start of content -->
+        <div class="blogs">
+            <div>
+                <h1>Members News</h1>
+
+                <h2>Bellow are a few of the latest posts from some of our Members</h2>
+                <!-- start of blog list -->
+                <div class="blog-posts">
+                    @foreach (var post in Model)
+                    {
+                    <article class="blog-post">
+                        <h1>
+                            @Html.ActionLink(post.Title, "Post", "News", new { year = post.Posted.Year, month = post.Posted.Month, key = post.Key })
+                        </h1>
+                        @if (post.Author == null)
+                        {
+                            <div class="details">
+                                Posted <span>@post.Posted.ToString("D")</span> by <span>Defualt</span>
+                            </div>
+                            <div class="content">
+                                @post.Body
+                            </div>
+                        }
+                else {
+                        <div class="details">
+                            Posted <span>@post.Posted.ToString("D")</span> by <span>@post.Author</span>
+                        </div>
+                        <div class="content">
+                            @post.Body
+                        </div>
+                        }
+                    </article>
+                    }
+                </div>
+                <!-- end of blog list -->
+            </div>
+        </div>
+    </div> <!-- end of contents -->
+</div>  <!-- end of body wrapper -->

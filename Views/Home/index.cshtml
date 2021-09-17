@@ -1,0 +1,83 @@
+@addTagHelper *, _1054686___Individual_Assignment
+@{
+    Layout = "_Layout";
+}
+@section navbar{
+    <ul>
+        <li class="current"><a href="@Url.Action("Index","Home")">home</a></li>
+        <li><a href="about.htm">about</a></li>
+        <li><a href="@Url.Action("Index","Events")">events</a></li>
+        <li><a href="gallery.htm">gallery</a></li>
+        <li><a href="@Url.Action("Index","News")">news</a></li>
+        <li><a href="contact-us.htm">contact</a></li>
+    </ul>
+}
+
+<div id="body">
+    <div id="main">
+        <h2>Aenean tincidunt sgittis libero, quis sagittis tortor consequat sed aecenas luctus ultricies mauris</h2>
+        <div class="featured">
+            <!-- start of featured -->
+            <a href="about.htm"><img src="/images/home-biker.jpg" width="270" height="180" alt="Bikers Club" title="Bikers Club"></a>
+            <a href="about.htm"><img src="/images/home-bikers.jpg" width="270" height="180" alt="Bikers Club" title="Bikers Club"></a>
+            <p>
+                This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text.
+                You can remove any link to our website from this website template, you're free to use this website template without linking back to us.
+            </p>
+            <p>Looking for more templates? Just browse through all our <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> and find what you&acute;re looking for. But if you don&acute;t find any website template you can use, you can try our <a href="http://www.freewebsitetemplates.com/freewebdesign/">Free Web Design</a> service and tell us all about it.</p>
+        </div> <!-- end of featured -->
+
+        <div class="section">
+            <!-- srtart of gallery and article section -->
+            <div id="gallery">
+                <h3>Photo Gallery</h3>
+                <ul>
+                    <li><a href="gallery.htm"><img src="/images/home-biker-thumbnail.jpg" width="125" height="80" alt="Bikers Club" title="Bikers Club"></a></li>
+                    <li><a href="gallery.htm"><img src="/images/home-boys.jpg" width="125" height="80" alt="Bikers Club" title="Bikers Club"></a></li>
+                    <li><a href="gallery.htm"><img src="/images/home-girls.jpg" width="125" height="80" alt="Bikers Club" title="Bikers Club"></a></li>
+                    <li><a href="gallery.htm"><img src="/images/home-family.jpg" width="125" height="80" alt="Bikers Club" title="Bikers Club"></a></li>
+                </ul>
+                <a class="more" href="gallery.htm">View more &#187;</a>
+            </div>
+
+            <div id="events">
+                <h3>Events</h3>
+                <vc:events />
+                <ul>
+                    <li>Aenean at risus quam, et semper nunc. Sed mollis arcu at augue facilisis a congue turpis</li>
+                    <li>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac</li>
+                    <li class="last">Duis dui enim, gravida at hendrerit id, molestie eget quam. Phasellus posuere nunc vitae ipsum aliquam et lobortis</li>
+                </ul>
+                <a class="more" href="events.htm">Read more &raquo;</a>
+            </div>
+        </div> <!-- end of gallery and article section -->
+    </div>
+
+    <div id="sidebar">
+        <!-- start of sidebar -->
+        <ul>
+            <li>
+                <h3><a href="about.htm">Proin sollicitudin dignissim ligula sed vestibulum.</a></h3>
+                <p>Vestibulum sed magna eu justo tempor facilisis sed ut felis. Ut vitae tortor neque, convallis lobortis enim.</p>
+            </li>
+            <li>
+                <h3><a href="about.htm"> Quisque purus nisl, feugiat  vitae convallis eu</a></h3>
+                <p>Nulla nunc magna, fringillavitae mattis insuscipitausto. Fusce laoreet, velit non feugiat laoreet, sem massa convallis tellus, et rutrum velit erat.</p>
+            </li>
+            <li>
+                <h3><a href="about.htm">Nunc ullamcorper, velit quis  mattis eleifend </a></h3>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tortor mauris, tempus in convallis in.</p>
+            </li>
+        </ul>
+
+        <h3>Get In Touch</h3>
+        <form>
+            <table>
+                <tr><td><input type="text" name="" value="Name" onblur="if(this.value==''){this.value=this.defaultValue;}" onfocus="if(this.value==this.defaultValue){this.value='';}" /></td></tr>
+                <tr><td><input type="text" name="" value="Email" onblur="if(this.value==''){this.value=this.defaultValue;}" onfocus="if(this.value==this.defaultValue){this.value='';}" /></td></tr>
+                <tr><td><textarea name="message" onblur="if(this.value==''){this.value=this.defaultValue;}" onfocus="if(this.value==this.defaultValue){this.value='';}">Message</textarea></td></tr>
+                <tr><td><input type="submit" value="" class="button" /></td></tr>
+            </table>
+        </form>
+    </div>  <!-- end of sidebar -->
+</div>  <!-- end of body wrapper -->
