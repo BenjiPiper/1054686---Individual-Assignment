@@ -1,0 +1,73 @@
+﻿@addTagHelper *, _1054686___Individual_Assignment
+@{
+    Layout = "_Layout";
+}
+@section navbar{
+    <ul>
+        <li><a href="@Url.Action("Index","Home")">home</a></li>
+        <li><a href="@Url.Action("Index","Events")">events</a></li>
+        <li class="current"><a href="@Url.Action("Index","Gallery")">gallery</a></li>
+        <li><a href="@Url.Action("Index","News")">news</a></li>
+        <li><a href="@Url.Action("Index","Contact")">contact</a></li>
+        <li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form id="logout" action="@Url.Action("Logout", "Account")" method="POST">
+                    <a href="javascript: $('#logout').submit()" class="last">
+                        Logout
+                        <br /><span class="tagline">@User.Identity.Name</span>
+                    </a>
+                </form>
+            }
+            else
+            {
+                <a href="@Url.Action("Login", "Account")" title="log in" class="last">
+                    Login
+                </a>
+            }
+        </li>
+    </ul>
+}
+<div id="body">
+    <div class="contents">
+        <!-- start of content -->
+        <h1>GALLERY</h1>
+
+        <!-- start of gallery -->
+        <div class="gallery">
+            <ul>
+                <li>
+                    <a href=""><img src="/images/gallery-girls.jpg" width="280" height="190" alt="Bikers Club" title="Bikers Club"></a>
+                    <h4>Scoial Ride 2014</h4>
+                    <p>Our memembers during a social ride in 2014.</p>
+                </li>
+                <li>
+                    <a href=""><img src="/images/gallery-family.jpg" width="280" height="190" alt="Bikers Club" title="Bikers Club"></a>
+                    <h4>Family Fun Ride 2015</h4>
+                    <p>Our members during a family fun ride in 2015.</p>
+                </li>
+                <li>
+                    <a href=""><img src="/images/gallery-biker.jpg" width="280" height="190" alt="Bikers Club" title="Bikers Club"></a>
+                    <h4>Road Race 2014 Winner</h4>
+                    <p>Our winning member of the 2014 road race event.</p>
+                </li>
+                <li>
+                    <a href=""><img src="/images/gallery-biker2.jpg" width="280" height="190" alt="Bikers Club" title="Bikers Club"></a>
+                    <h4>Road Race 2015 Winner</h4>
+                    <p>Our winning member of the 2015 road race event. </p>
+                </li>
+                <li>
+                    <a href=""><img src="/images/gallery-family2.jpg" width="280" height="190" alt="Bikers Club" title="Bikers Club"></a>
+                    <h4>Family Fun Ride 2016</h4>
+                    <p>Our members during a family fun ride in 2016.</p>
+                </li>
+                <li>
+                    <a href=""><img src="/images/gallery-boys.jpg" width="280" height="190" alt="Bikers Club" title="Bikers Club"></a>
+                    <h4>Road Race Teams 2016 Winners</h4>
+                    <p>Our winning member of the 2016 road race team event.</p>
+                </li>
+            </ul>
+        </div>
+        <!-- end of section -->
+    </div> <!-- end of contents -->
+</div>  <!-- end of body wrapper -->

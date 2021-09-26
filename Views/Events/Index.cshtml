@@ -5,9 +5,9 @@
     <ul>
         <li><a href="@Url.Action("Index","Home")">home</a></li>
         <li class="current"><a href="@Url.Action("Index","events")">events</a></li>
-        <li><a href="/gallery.htm">gallery</a></li>
+        <li><a href="@Url.Action("Index","Gallery")">gallery</a></li>
         <li><a href="@Url.Action("Index","News")">news</a></li>
-        <li><a href="/contact-us.htm">contact</a></li>
+        <li><a href="@Url.Action("Index","Contact")">contact</a></li>
         <li>
             @if (User.Identity.IsAuthenticated)
             {
