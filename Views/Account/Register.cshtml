@@ -1,0 +1,65 @@
+﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@model _1054686___Individual_Assignment.Models.Account.RegisterViewModel
+@{
+    Layout = "_Layout";
+}
+@section navbar{
+    <ul>
+        <li><a href="@Url.Action("Index","Home")">home</a></li>
+        <li><a href="@Url.Action("Index","Events")">events</a></li>
+        <li><a href="gallery.htm">gallery</a></li>
+        <li><a href="@Url.Action(" Index","News")">news</a></li>
+        <li><a href="contact-us.htm">contact</a></li>
+        <li class="current">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form id="logout" action="@Url.Action("Logout", "Account")" method="POST">
+                    <a href="javascript: $('#logout').submit()" class="last">
+                        Logout
+                        <br /><span class="tagline">@User.Identity.Name</span>
+                    </a>
+                </form>
+            }
+            else
+            {
+                <a href="@Url.Action("Login", "Account")" title="log in" class="last">
+                    Login
+                </a>
+            }
+        </li>
+    </ul>
+}
+<fieldset class="account">
+
+    <h1>New User Registration</h1>
+
+    <br />
+
+    <form role="form" asp-action="Register">
+        <div asp-validation-summary="All" class="input-validation-error"></div>
+
+        <div class="form-group">
+            <label asp-for="EmailAddress"></label>
+            <input type="email" asp-for="EmailAddress" class="form-control" />
+            <span asp-validation-for="EmailAddress" class="field-validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input type="password" asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="field-validation-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ConfirmPassword"></label>
+            <input type="password" asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="field-validation-error"></span>
+        </div>
+        <br />
+        <div>
+            <label>&nbsp;</label>
+            <button type="submit" class="btn btn-primary">Create new user</button>
+        </div>
+
+    </form>
+</fieldset>

@@ -4,40 +4,64 @@
 @section navbar{
     <ul>
         <li><a href="@Url.Action("Index","Home")">home</a></li>
-        <li><a href="/about.htm">about</a></li>
         <li class="current"><a href="@Url.Action("Index","events")">events</a></li>
         <li><a href="/gallery.htm">gallery</a></li>
         <li><a href="@Url.Action("Index","News")">news</a></li>
         <li><a href="/contact-us.htm">contact</a></li>
+        <li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form id="logout" action="@Url.Action("Logout", "Account")" method="POST">
+                    <a href="javascript: $('#logout').submit()" class="last">
+                        Logout
+                        <br /><span class="tagline">@User.Identity.Name</span>
+                    </a>
+                </form>
+            }
+            else
+            {
+                <a href="@Url.Action("Login", "Account")" title="log in" class="last">
+                    Login
+                </a>
+            }
+        </li>
     </ul>
 }
 <div id="body">
     <div class="contents">
         <!-- start of content -->
         <h1>EVENTS</h1>
-        <h2>This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text.</h2>
-        <p>
-            You can remove any link to our website from this website template, you're free to use this website template without linking back to us.
-            You can use them to design websites for clients, so long as you agree with the <a href="http://www.freewebsitetemplates.com/about/termsofuse/">Terms of Use</a>.
-            If you're having problems editing this website template, then don't hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forum/">Forum</a>.
-        </p>
+        <h2>Here are some of our Upcoming Competitions</h2>
+            <a href="/events/create" class="button" style="color: #ff7800; float:right">Create Event</a>
+        
         <ul class="articles">
-            <li>
-                <a href=""><img src="/images/event-bikers.jpg" width="208" height="148" alt="Bikers Club" title="Bikers Club"></a>
-                <h3>Integer pellentesque diam eu nisi malesuada<br /> Integer nec bibendum elit.Donec ut augue erat<br /> Sept 21, 2011</h3>
-                <p>Sed sit amet odio est. Etiam eu dolor urna, ut pretium quam. Quisque ut nisi et nisi consectetur convallis. Integer dapibus pharetra purus, sed ornare mi euismod et. Vestibulum augue risus, ultrices ac imperdiet eu, commodo id erat. Integer arcu tellus, rhoncus in viverra nec, posuere vel urna.</p>
-            </li>
-            <li>
-                <a href=""><img src="/images/event-biker.jpg" width="208" height="148" alt="Bikers Club" title="Bikers Club"></a>
-                <h3>Maecenas nec dolor nec eros congue placerat.<br /> Fusce magna tortor, consequat ut rhoncus rutrum<br /> Sept 27, 2011</h3>
-                <p>Sed sit amet odio est. Etiam eu dolor urna, ut pretium quam. Quisque ut nisi et nisi consectetur convallis. Integer dapibus pharetra purus, sed ornare mi euismod et. Vestibulum augue risus, ultrices ac imperdiet eu, commodo id erat. Integer arcu tellus, rhoncus in viverra nec, posuere vel urna.</p>
-            </li>
-            <li>
-                <a href=""><img src="/images/event-family.jpg" width="208" height="148" alt="Bikers Club" title="Bikers Club"></a>
-                <h3>Ut tristique erat a lorem rutrum ut<br /> sagittis mauris porttitor. Nulla sed turpis<br /> Dec 25, 2011</h3>
-                <p>Sed sit amet odio est. Etiam eu dolor urna, ut pretium quam. Quisque ut nisi et nisi consectetur convallis. Integer dapibus pharetra purus, sed ornare mi euismod et. Vestibulum augue risus, ultrices ac imperdiet eu, commodo id erat. Integer arcu tellus, rhoncus in viverra nec, posuere vel urna.</p>
-            </li>
-        </ul>
-        <!-- end of section -->
+            
+                @foreach (var cEvent in Model)
+                {
+                    //trying to cycle through different images to display on webpage
+                    string[] imageList = { "/images/event-bikers.jpg", "/images/event-biker.jpg", "/images/event-family.jpg" };
+                    //foreach(var img in imageList)
+                    //{
+                    //    string name = img.ToString();
+                    //    Write(name);
+                    //    break;
+                    //}
+                    <li>
+                        <a href="">
+                            <img src=@foreach(var img in imageList)
+                    {
+                        string name = img.ToString();
+                        Write(name);
+                        break;
+                    } width="208" height="148" alt="Bikers Club" title="Bikers Club">
+                        </a>
+                        <h3>@cEvent.Title<br /> By <span> @cEvent.Author </span> at <span>@cEvent.Location</span><br /> @cEvent.Time.ToString("dddd, dd MMMM yyyy") </h3>
+                        <p>@cEvent.Body</p>
+                    </li>
+                }
+            </ul>
+            <!-- end of section -->
+
     </div>
+
 </div>

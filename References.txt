@@ -1,7 +1,5 @@
-HTML files source code
-CSS file source code
-Images: compressed versions
-Provided by Unkown Author, sourced from https://freewebsitetemplates.com/forums/threads/bikers-club-website-template.18531/
+Mimoun (2011) Bikers club website template (Version 20) [HTML & CSS Source code, Images compressed versions]. https://freewebsitetemplates.com/forums/threads/bikers-club-website-template.18531/
+
 Version 1: started in 2010
 ...
 Version 20: December 2011

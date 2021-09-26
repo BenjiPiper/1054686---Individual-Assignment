@@ -1,6 +1,7 @@
 using _1054686___Individual_Assignment.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace _1054686___Individual_Assignment
 {
@@ -36,6 +38,13 @@ namespace _1054686___Individual_Assignment
                 var connectionString = Configuration.GetConnectionString("EventsDataContext");
                 options.UseSqlServer(connectionString);
             });
+            //identity/authorisation services
+            services.AddDbContext<IdentityDataContext>(options =>
+            {
+                var connectionString = Configuration.GetConnectionString("IdentityDataContext");
+                options.UseSqlServer(connectionString);
+            });
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IdentityDataContext>();
 
             //enable MVC
             services.AddRazorPages();
@@ -61,7 +70,8 @@ namespace _1054686___Individual_Assignment
             app.UseRouting();
 
             app.UseAuthorization();
-
+            //User Identity services
+            app.UseAuthentication();
             //addMVC - Personal Note: now known as endpoints
             app.UseEndpoints(endpoints =>
             {

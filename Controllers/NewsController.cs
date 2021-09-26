@@ -1,4 +1,5 @@
 ﻿using _1054686___Individual_Assignment.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace _1054686___Individual_Assignment.Controllers
         [Route("index")]
         public IActionResult Index()
         {
-            var posts = _db.Posts.OrderByDescending(x => x.Posted).Take(3).ToArray();
+            var posts = _db.Posts.OrderByDescending(x => x.Posted).Take(5).ToArray();
             return View(posts);
         }
 
@@ -40,6 +41,7 @@ namespace _1054686___Individual_Assignment.Controllers
             return View(post);
         }
         //creat post page
+        //[Authorize]
         [HttpGet, Route("create")]
         public IActionResult Create()
         {
